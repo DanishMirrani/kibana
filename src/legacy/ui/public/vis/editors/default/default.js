@@ -122,7 +122,7 @@ const defaultEditor = function ($rootScope, $compile) {
           $scope.$watch(() => {
             return $scope.vis.getSerializableState($scope.state);
           }, function (newState) {
-            $scope.vis.dirty = !angular.equals(newState, $scope.oldState);
+            $scope.vis.dirty = !angular.equals(newState, $scope.vis.getEnabledState());
             $scope.responseValueAggs = null;
             try {
               $scope.responseValueAggs = $scope.state.aggs.getResponseAggs().filter(function (agg) {
